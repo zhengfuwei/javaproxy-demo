@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /***
- * 动态代理实现-
+ * Dynamic proxy implementation
  */
 public class DynamicProxyTest implements InvocationHandler {
 
@@ -19,7 +19,7 @@ public class DynamicProxyTest implements InvocationHandler {
     }
 
     /***
-     * 利用反射获取动态代理对象以及方法
+     * Use reflection to obtain dynamic proxy objects and methods
      * @param proxy
      * @param method
      * @param args
@@ -40,21 +40,21 @@ public class DynamicProxyTest implements InvocationHandler {
     }
 
     /**
-     * 动态代理测试
+     * Dynamic agent test
      * @param args
      */
     public static void main(String[] args) {
-        //创建需要被代理的类
+        //Create the classes that need to be represented
         PersonServiceImpl p = new PersonServiceImpl();
-        //获得被加载的代理对象 的类加载器
+        //Gets the class loader of the loaded proxy object
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        //获取被代理类实现的接口
+        //Gets the interface implemented by the proxy class
         Class<?>[] interfaces = p.getClass().getInterfaces();
-        //创建被代理的委托类 想被代理 直接委托它 调用invoke即可
+        //Create a proxy class that wants to be directly delegated by the proxy to call invoke
         DynamicProxyTest test = new DynamicProxyTest(p);
-        //生成代理类
+        //Generate proxy class
         PersonService proxy = (PersonService) Proxy.newProxyInstance(loader, interfaces, test);
-        //通过代理类 调用被代理类的方法
+        //The method of the proxy class is called through the proxy class
         proxy.sayHello("test",20);
         proxy.sayGoodBye(true,20.5);
         System.out.println("end");
