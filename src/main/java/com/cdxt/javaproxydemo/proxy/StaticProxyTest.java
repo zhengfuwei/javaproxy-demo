@@ -19,7 +19,7 @@ public class StaticProxyTest implements PersonService {
      * @param args
      */
     public static void main(String[] args) {
-        //创建静态代理对象
+        //Create a static proxy object
         PersonServiceImpl p = new PersonServiceImpl();
         StaticProxyTest proxy = new StaticProxyTest(p);
         //调用静态代理对象的方法
