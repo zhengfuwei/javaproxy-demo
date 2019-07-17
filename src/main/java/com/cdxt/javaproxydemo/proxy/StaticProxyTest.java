@@ -4,18 +4,18 @@ import com.cdxt.javaproxydemo.service.Impl.PersonServiceImpl;
 import com.cdxt.javaproxydemo.service.PersonService;
 
 /***
- * java代理之静态代理运用（需要准确知道那个代理类）
+ * Static proxy application of agents (need to know exactly which proxy class)
  */
 public class StaticProxyTest implements PersonService {
 
     private PersonService personService;
-    //构造器
+    //constructor
     public StaticProxyTest(PersonService personService) {
         this.personService = personService;
     }
 
     /***
-     * 测试静态代理
+     * Test the static agent
      * @param args
      */
     public static void main(String[] args) {
