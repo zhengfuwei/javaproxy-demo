@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /***
- * 动态代理实现
+ * 动态代理实现-
  */
 public class DynamicProxyTest implements InvocationHandler {
 
