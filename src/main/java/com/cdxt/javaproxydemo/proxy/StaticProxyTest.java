@@ -22,7 +22,7 @@ public class StaticProxyTest implements PersonService {
         //Create a static proxy object
         PersonServiceImpl p = new PersonServiceImpl();
         StaticProxyTest proxy = new StaticProxyTest(p);
-        //调用静态代理对象的方法
+        //Calls the method of the static proxy object
         proxy.sayHello("welcome to static proxy java",20);
         System.out.println("**********华丽的分割线********");
         proxy.sayGoodBye(true,200.23);
@@ -33,7 +33,7 @@ public class StaticProxyTest implements PersonService {
     @Override
     public void sayHello(String content, int age) {
         System.out.println("static proxy sayHello start");
-        //真正调用的方法 在代理类的方法  间接调用代理方法
+        //Invoke the proxy method indirectly
         personService.sayHello(content,age);
         System.out.println("static proxy sayHello end");
     }
@@ -41,7 +41,7 @@ public class StaticProxyTest implements PersonService {
     @Override
     public void sayGoodBye(boolean seeAgain, double time) {
         System.out.println("static proxy sayHello start");
-        //真正调用的方法 在代理类的方法  间接调用代理方法
+        //Invoke the proxy method indirectly
         personService.sayGoodBye(seeAgain,time);
         System.out.println("static proxy sayHello end");
     }
